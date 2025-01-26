@@ -10,7 +10,7 @@
 
   <!-- CSS Styles -->
   <style>
-    body {
+   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -35,9 +35,8 @@
 
   .photo-container {
     position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 20px; /* Stay at the top */
+    right: 20px; /* Align to the right */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,6 +55,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
+    text-align: center;
   }
 
   .input-container {
@@ -145,9 +145,9 @@
 
   /* Responsive Styles for Smaller Devices */
   @media (max-width: 768px) {
-    .banner-container {
-      height: auto;
-      aspect-ratio: 4 / 3;
+    .photo-container {
+      top: 10px; /* Stay at the top */
+      right: 10px; /* Adjust position for smaller screens */
     }
 
     .photo-container img {
@@ -171,8 +171,8 @@
 
   @media (max-width: 480px) {
     .photo-container {
-      top: 30%;
-      left: 80%;
+      top: 5px;
+      right: 5px;
     }
 
     .photo-container img {
