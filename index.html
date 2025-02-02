@@ -270,15 +270,30 @@
       }
     }
 
+    // function downloadBanner() {
+    //   const banner = document.getElementById("banner");
+    //   html2canvas(banner, { useCORS: true }).then((canvas) => {
+    //     const link = document.createElement("a");
+    //     link.href = canvas.toDataURL("image/png");
+    //     link.download = "event_banner.png";
+    //     link.click();
+    //   });
+    // }
     function downloadBanner() {
-      const banner = document.getElementById("banner");
-      html2canvas(banner, { useCORS: true }).then((canvas) => {
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = "event_banner.png";
-        link.click();
-      });
-    }
+  const banner = document.getElementById("banner");
+
+  html2canvas(banner, {
+    scale: window.devicePixelRatio * 2, // Increase resolution dynamically
+    useCORS: true, // Ensure cross-origin images are captured
+    logging: false
+  }).then((canvas) => {
+    const link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png", 1.0); // Ensure max quality
+    link.download = "event_banner.png";
+    link.click();
+  });
+}
+
   </script>
 </body>
 </html>
