@@ -27,8 +27,8 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background-image: url("./back_ground_y.jpg");
-    background-size: cover;
+ /* Replace <BASE64_IMAGE> with Base64 representation of your background */
+        background-size: cover;
     background-position: center;
   }
 
@@ -194,13 +194,15 @@
 </style>
 </head>
 <body>
-  <div class="banner-container" id="banner">
+  <!-- <div class="banner-container" id="banner"> -->
+    <img class="background-image banner-container" src="./back_ground_y.jpg" alt="Back-ground-image" id="banner">
     <div class="photo-container">
       <img id="userPhoto" src="https://via.placeholder.com/150" alt="User Photo">
       <div class="name" style="color:red;" id="userName">Your Name</div>
       <!-- <div class="designation" style="color:red;" id="userDesignation">Your Designation</div> -->
     </div>
-  </div>
+</img>
+  <!-- </div> -->
 
   <div class="input-container">
     <label for="nameInput">Name:</label>
@@ -277,67 +279,15 @@
     //   });
     // }
 
-    // function downloadBanner() {
-    //   const banner = document.getElementById("banner");
-    //   html2canvas(banner, { scale: window.devicePixelRatio * 3, useCORS: true }).then((canvas) => {
-    //     const link = document.createElement("a");
-    //     link.href = canvas.toDataURL("image/png", 1.0);
-    //     link.download = "high_res_banner.png";
-    //     link.click();
-    //   });
-    // }
-
-
-    //document.getElementById("save-image").addEventListener("click", function () {
-    
     function downloadBanner() {
-          //const section = document.querySelector("#background-image"); // Ensure this ID exists
-          const section = document.getElementById("banner");
-          
-          if (!section) {
-              console.error("Element with ID 'background-image' not found.");
-              return;
-          }
-      
-          html2canvas(section, {
-              scale: window.devicePixelRatio || 2, // Improve resolution
-              backgroundColor: null, // Ensure background images render correctly
-              useCORS: true, // Load external images properly
-              logging: false // Reduce console logs
-          }).then(canvas => {
-              const link = document.createElement("a");
-              link.href = canvas.toDataURL("image/png", 1.0); // Highest quality
-              link.download = "section-image.png";
-              link.click();
-          }).catch(error => {
-              console.error("Error capturing image:", error);
-          });
-        }
-     // });
-
-
-    // document.getElementById("save-image").addEventListener("click", function () {
-    //       const section = document.querySelector("#background-image"); // Ensure this ID exists
-          
-    //       if (!section) {
-    //           console.error("Element with ID 'background-image' not found.");
-    //           return;
-    //       }
-      
-    //       html2canvas(section, {
-    //           scale: window.devicePixelRatio || 2, // Improve resolution
-    //           backgroundColor: null, // Ensure background images render correctly
-    //           useCORS: true, // Load external images properly
-    //           logging: false // Reduce console logs
-    //       }).then(canvas => {
-    //           const link = document.createElement("a");
-    //           link.href = canvas.toDataURL("image/png", 1.0); // Highest quality
-    //           link.download = "section-image.png";
-    //           link.click();
-    //       }).catch(error => {
-    //           console.error("Error capturing image:", error);
-    //       });
-    //   });
+      const banner = document.getElementById("banner");
+      html2canvas(banner, { scale: window.devicePixelRatio * 3, useCORS: true }).then((canvas) => {
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png", 1.0);
+        link.download = "high_res_banner.png";
+        link.click();
+      });
+    }
   </script>
 </body>
 </html>
