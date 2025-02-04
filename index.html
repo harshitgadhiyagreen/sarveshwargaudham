@@ -61,6 +61,11 @@
     .name:focus {
         border: none; /* Adds a bottom border on focus */
     }
+
+    .name::placeholder {
+      color:white; /* Change to your preferred color */
+      opacity: 1; /* Ensure full visibility */
+  }
     
       .croped-text{
         position: absolute;
@@ -101,6 +106,7 @@
       }
       .croped-text{
         bottom: 42%;
+        right: 4%;
       }
   }
     </style>
@@ -115,7 +121,7 @@
             </div>
           </div>
           <div class="croped-text">
-          <input class="name" type="text" name="name" id="name" placeholder="enter name" autocomplete="name"/>
+          <input class="name" type="text" name="name" id="name" placeholder="Enter Name" autocomplete="name"/>
           </div>
         </div>
     <div>
