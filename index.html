@@ -277,15 +277,15 @@
     //   });
     // }
 
-    function downloadBanner() {
-      const banner = document.getElementById("banner");
-      html2canvas(banner, { scale: window.devicePixelRatio * 3, useCORS: true }).then((canvas) => {
-        const link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png", 1.0);
-        link.download = "high_res_banner.png";
-        link.click();
-      });
-    }
+    // function downloadBanner() {
+    //   const banner = document.getElementById("banner");
+    //   html2canvas(banner, { scale: window.devicePixelRatio * 3, useCORS: true }).then((canvas) => {
+    //     const link = document.createElement("a");
+    //     link.href = canvas.toDataURL("image/png", 1.0);
+    //     link.download = "high_res_banner.png";
+    //     link.click();
+    //   });
+    // }
 
 
     //document.getElementById("save-image").addEventListener("click", function () {
