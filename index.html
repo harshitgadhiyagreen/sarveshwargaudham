@@ -17,157 +17,116 @@
       rel="stylesheet"
     />
     <style>
-      body {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-      }
-
-      .image-container {
-        display: flex;
-        position: relative;
-        width: 100%;
-        max-width: 100vw;
-        overflow: hidden;
-      }
-
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container{
+          display: flex;
+        }
+      
       .background-image {
-        width: 100%;
-        height: auto;
+        width:100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
+    }
+    
+      .full-screen-img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
       }
-
-      .croped-image {
+      .croped-image{
         position: absolute;
-        right: 10%;
-        bottom: 35%;
+        right: 22%;
         display: flex;
         justify-content: flex-end;
+        padding: 1rem;
+        bottom: 30%;
         color: white;
       }
-
       .name {
         background: transparent;
         border: none;
         color: white;
         outline: none;
-        font-size: 1rem;
-        text-align: center;
-        width: auto;
-        padding: 0.3rem 0.5rem;
-      }
+    }
+    
+    .name:focus {
+        border: none; /* Adds a bottom border on focus */
+    }
 
-      .name:focus {
-        border: none;
-      }
-
-      .name::placeholder {
-        color: white;
-        opacity: 1;
-      }
-
-      .croped-text {
+    .name::placeholder {
+      color:white; /* Change to your preferred color */
+      opacity: 1; /* Ensure full visibility */
+  }
+    
+      .croped-text{
         position: absolute;
-        right: 10%;
-        bottom: 30%;
+        right: 22%;
+        bottom: 25%;
         color: white;
-        text-align: center;
       }
-
       #cropped-container {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        overflow: hidden;
+        width: 145px;
+        height: 145px;
+        border: none;
+        border-radius: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
       }
-
       #cropped-container img {
         max-width: 100%;
-        max-height: 100%;
       }
 
-      /* Responsive Adjustments */
-      @media screen and (max-width: 768px) {
-        .croped-image {
-          right: 5%;
-          bottom: 40%;
-        }
-
-        .croped-text {
-          right: 5%;
-          bottom: 35%;
-        }
-
-        #cropped-container {
-          width: 120px;
-          height: 120px;
-        }
-
-        .name {
-          font-size: 0.9rem;
-          padding: 0.2rem 0.4rem;
-        }
+  
+  /* For very small mobile screens (below 480px) */
+  @media screen and (max-width: 480px) {
+      #cropped-container {
+        width: 70px;
+        height: 70px;
       }
-
-      @media screen and (max-width: 480px) {
-        .croped-image {
-          right: 2%;
-          bottom: 43%;
-        }
-
-        .croped-text {
-          right: 2%;
-          bottom: 38%;
-        }
-
-        #cropped-container {
-          width: 90px;
-          height: 90px;
-        }
-
-        .name {
-          font-size: 0.8rem;
-          width: 80px;
-        }
+      p{
+        font-size: 10px;
       }
-
-      button {
-        margin: 1rem 0;
+      .croped-image {
+        right: 5%;
+        bottom: 43%;
       }
+      .name {
+        width: 100px;
+      }
+      .croped-text{
+        bottom: 42%;
+        right: 4%;
+      }
+  }
     </style>
   </head>
   <body class="text-center">
-    <div id="background-image" class="image-container">
-      <img class="background-image" src="./back_ground_y.jpg" alt="Background Image" />
-      <div class="croped-image">
-        <div id="cropped-container">
-          <p>Image will appear here</p>
-        </div>
-      </div>
-      <div class="croped-text">
-        <input
-          class="name"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Enter Name"
-          autocomplete="name"
-        />
-      </div>
-    </div>
 
+    <div id="background-image" class="image-container">
+      <img class="background-image" src="./back_ground_img.jpg" alt="Back-ground-image">
+        <div class="croped-image">
+            <div id="cropped-container" class="m-auto">
+              <p>Image will appear here</p>
+            </div>
+          </div>
+          <div class="croped-text">
+          <input class="name" type="text" name="name" id="name" placeholder="Enter Name" autocomplete="name"/>
+          </div>
+        </div>
     <div>
       <button
-        class="btn btn-primary"
+        class="btn btn-primary mt-3"
         data-bs-toggle="modal"
         data-bs-target="#imageModal"
       >
@@ -203,27 +162,25 @@
         </div>
       </div>
     </div>
-
-    <button class="btn btn-danger" id="save-image">Save as Image</button>
-
+    
+    <button class="btn btn-danger mt-3" id="save-image">Save as Image</button>
     <script>
-      let cropper;
-      document
-        .getElementById("upload-image")
-        .addEventListener("change", function (event) {
-          const file = event.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              const image = document.getElementById("preview-image");
-              image.src = e.target.result;
-              image.style.display = "block";
-              if (cropper) cropper.destroy();
-              cropper = new Cropper(image, { aspectRatio: 1, viewMode: 1 });
-            };
-            reader.readAsDataURL(file);
-          }
+        let cropper;
+        document.getElementById('upload-image').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const image = document.getElementById('preview-image');
+                    image.src = e.target.result;
+                    image.style.display = 'block';
+                    if (cropper) cropper.destroy();
+                    cropper = new Cropper(image, { aspectRatio: 1, viewMode: 1 });
+                };
+                reader.readAsDataURL(file);
+            }
         });
+
 
       document
         .getElementById("crop-btn")
@@ -233,6 +190,8 @@
             const croppedImageSrc = canvas.toDataURL();
             document.getElementById("cropped-container").innerHTML =
               '<img src="' + croppedImageSrc + '" class="img-fluid">';
+
+            // Close the modal
             var modal = bootstrap.Modal.getInstance(
               document.getElementById("imageModal")
             );
@@ -240,30 +199,29 @@
           }
         });
 
-      document
-        .getElementById("save-image")
-        .addEventListener("click", function () {
-          const section = document.querySelector("#background-image");
+        document.getElementById("save-image").addEventListener("click", function () {
+          const section = document.querySelector("#background-image"); // Ensure this ID exists
+          
           if (!section) {
-            console.error("Element with ID 'background-image' not found.");
-            return;
+              console.error("Element with ID 'background-image' not found.");
+              return;
           }
+      
           html2canvas(section, {
-            scale: window.devicePixelRatio || 2,
-            backgroundColor: null,
-            useCORS: true,
-            logging: false,
-          })
-            .then((canvas) => {
+              scale: window.devicePixelRatio || 2, // Improve resolution
+              backgroundColor: null, // Ensure background images render correctly
+              useCORS: true, // Load external images properly
+              logging: false // Reduce console logs
+          }).then(canvas => {
               const link = document.createElement("a");
-              link.href = canvas.toDataURL("image/png", 1.0);
+              link.href = canvas.toDataURL("image/png", 1.0); // Highest quality
               link.download = "section-image.png";
               link.click();
-            })
-            .catch((error) => {
+          }).catch(error => {
               console.error("Error capturing image:", error);
-            });
-        });
+          });
+      });
+      
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
