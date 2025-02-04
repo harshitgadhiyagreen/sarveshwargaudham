@@ -21,11 +21,12 @@
     } */
 
   .banner-container {
-    width: 90%;
+    padding-left:5px;
+    width: 100%;
     max-width: 800px;
     height: auto;
     aspect-ratio: 4 / 3;
-    margin: 20px auto;
+    margin: auto auto auto auto;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
@@ -148,8 +149,10 @@
   /* Responsive Styles for Smaller Devices */
   @media (max-width: 768px) {
     .photo-container {
-      top: 10px; /* Stay at the top */
-      right: 10px; /* Adjust position for smaller screens */
+      /* top: 10px; 
+      right: 10px; */
+      bottom: 10px; 
+      right: 10px;
     }
 
     .photo-container img {
@@ -173,7 +176,8 @@
 
   @media (max-width: 480px) {
     .photo-container {
-      top: 5px;
+      /* top: 5px; */
+      bottom: 5px; 
       right: 5px;
     }
 
@@ -198,7 +202,7 @@
 </head>
 <body>
   <div class="banner-container" id="banner">
-    <img class="background-image banner-container" src="./back_ground_y.jpg" alt="Back-ground-image" id="banner1">
+    <img class="background-image123 banner-container" src="./back_ground_y.jpg" alt="Back-ground-image">
         <div class="photo-container">
         <img id="userPhoto" src="https://via.placeholder.com/150" alt="User Photo">
         <div class="name" style="color:red;" id="userName">Your Name</div>
