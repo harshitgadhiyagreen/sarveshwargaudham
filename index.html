@@ -149,8 +149,8 @@
     /* Responsive Styles for Smaller Devices */
     @media (max-width: 768px) {
         .photo-container {
-        top: 170px; 
-        right: 35px;
+        top: 172px; 
+        right: 32px;
         /* bottom: 10px;  */
         right: 10px;
         }
@@ -176,9 +176,9 @@
 
     @media (max-width: 480px) {
         .photo-container {
-        top: 140px;
+        top: 142px;
         /* bottom: 5px;  */
-        right: 28px;
+        right: 25px;
         }
 
         .photo-container img {
@@ -205,15 +205,15 @@
         <img class="background-image123 banner-container" src="./back_update.jpg" alt="Back-ground-image">
             <div class="photo-container">
                 <img class="personal_img" id="userPhoto" src="https://via.placeholder.com/150" alt="User Photo">
-                <div class="name" style="color:#1d3858; padding-left: 2px;" id="userName">Your Name</div>
+                <!-- <div class="name" style="color:#1d3858; padding-left: 2px;" id="userName">Your Name</div> -->
             </div>
             
         </img>
     </div>
 
     <div class="input-container">
-        <label for="nameInput">Name:</label>
-        <input type="text" id="nameInput" placeholder="Enter your name" oninput="updateName()">
+        <!-- <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter your name" oninput="updateName()"> -->
         <label for="imageInput">Upload Profile Picture:</label>
         <input type="file" id="imageInput" accept="image/*" onchange="handleFileInput(event)">
     </div>
@@ -291,7 +291,7 @@
         html2canvas(banner, { scale: window.devicePixelRatio * 3, useCORS: true }).then((canvas) => {
             const link = document.createElement("a");
             link.href = canvas.toDataURL("image/png", 1.0);
-            link.download = "high_res_banner.png";
+            link.download = "ભવ્ય_પોથીયાત્રા.png";
             link.click();
         });
         }
